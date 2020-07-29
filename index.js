@@ -1,7 +1,7 @@
 const canvas = document.querySelector("canvas");
 var p = canvas.getContext('2d');
 canvas.height = 700;
-canvas.width = 1200;
+canvas.width = 1800;
 canvas.style.border = "1px solid red";
 
 // download 
@@ -167,7 +167,7 @@ inputfile.addEventListener('change',function(){
             x.addEventListener('load',function(){
                 
                 
-                p.drawImage(x, coord.x, coord.y,100,100);
+                p.drawImage(x, coord.x, coord.y,500,500);
             })
               
             x.setAttribute('src', this.result);
