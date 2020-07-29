@@ -1,0 +1,84 @@
+<!DOCTYPE html5>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my webcam</title>
+</head>
+<body>
+    <style>
+        .vi{
+            
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                 -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+                z-index: 0;
+                border: 3px solid purple;
+                border-radius: 50%;
+                outline: none;
+             
+
+ 
+        }
+         img{
+            display: none;
+        }
+        input,select{
+            margin: 10px;
+            display: inline-block;
+            
+        }
+        #text{
+            
+                position: absolute;
+                top:0;
+                left:0;
+                display: none;
+                padding: 3px;
+
+        }
+       
+        a,button{
+            text-decoration: none;
+            font-size: 15px;
+        
+        margin-top: 20px;
+        background-color: purple;
+        color:white;
+        border: "1px solid white";
+        padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    outline: none;
+}
+                </style>      
+    <div>
+        <canvas class="cavas"></canvas>
+        <video class="vi" width="200px" paused controls></video>
+        <input type="text" id="text" value="Enter text here">
+    </div>
+       
+Strock color:<input type="color" name="st" id="strock" onchange="change(this)"> 
+<Strong> Line Width</Strong>:<input type="number" min="1" max="10" name="st" id="strock" onchange="changeline(this)">  
+   
+    <select onchange="tool(this)">
+        <option value="line"> Line </option>
+        <option value="text"> Text </option>
+    </select>
+<Strong> Font size </Strong>:<input type="number" step="5" min="30" max="100" name="st" id="strock" onchange="fontsize(this)"> 
+uload image File:<input type="file" id="imageLoader" name="imageLoader" />
+    <br>
+
+    <button onclick="clearcanvas()">Clear</button>
+    <button onclick="convertoimage()">Convert to Image</button>
+    <button onclick="Hideimage()">Hide Image</button>
+    <img src="#" alt="your image" id="output">
+    
+    <script src="./index.js"></script>
+
+
+</body>
+
+</html>
