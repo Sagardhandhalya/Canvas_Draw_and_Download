@@ -8,16 +8,17 @@
 <body>
     <style>
         .vi{
-            
+                   display: none;
                 position: absolute;
                 top: 20px;
                 right: 20px;
                  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+                transform: scaleX(-1);
                 z-index: 0;
                 border: 3px solid purple;
                 border-radius: 50%;
                 outline: none;
+             
              
 
  
@@ -70,7 +71,7 @@ Strock color:<input type="color" name="st" id="strock" onchange="change(this)">
 <Strong> Font size </Strong>:<input type="number" step="5" min="30" max="100" name="st" id="strock" onchange="fontsize(this)"> 
 uload image File:<input type="file" id="imageLoader" name="imageLoader" />
     <br>
-
+    <button onclick="webcamera()" id ="webcamcontrol">enable WebCam</button>
     <button onclick="clearcanvas()">Clear</button>
     <button onclick="convertoimage()">Convert to Image</button>
     <button onclick="Hideimage()">Hide Image</button>

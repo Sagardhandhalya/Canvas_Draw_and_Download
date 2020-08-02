@@ -199,13 +199,37 @@ function clearcanvas()
 }
 
 // web camp...
+
+
+
+// stop only camera
+function stopVideoOnly(stream) {
+    stream.getTracks().forEach(function (track) {
+        if (track.readyState == 'live' && track.kind === 'video') {
+            track.stop();
+        }
+    });
+}
+
+// stop only mic
+function stopAudioOnly(stream) {
+    stream.getTracks().forEach(function (track) {
+        if (track.readyState == 'live' && track.kind === 'audio') {
+            track.stop();
+        }
+    });
+}
 function getvideo(){
    
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(localMediaStream =>{
-        
-        var video = document.querySelector("video");
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(localMediaStream =>{
+       
+        var video = document.getElementsByClassName("vi")[0];
+  
+        video.style.display = "inline";
+      
         video.srcObject = localMediaStream; 
       video.play(); 
+      console.log("video started....");
     }).catch(
         err=>{
             console.log(err);
@@ -215,5 +239,38 @@ function getvideo(){
     
 }
 
-getvideo();
+var webcam = false;
+
+function webcamera(){
+    
+    webcam = !webcam;
+   
+    var control = document.getElementById("webcamcontrol");
+   
+    control.innerHTML = webcam ? "Disable webcam" : "enable Webcam";
+    if(webcam == true) {
+     
+        getvideo();
+        
+    }
+   else {
+        console.log(webcam);
+      
+    
+        var video = document.getElementsByClassName("vi")[0];
+        var str = video.srcObject.getTracks();
+
+        str.forEach(function(t){
+            t.stop();
+        });
+
+        video.pause();
+        video.src = "";
+        video.style.display = "none";
+        
+    }
+    
+}
+
+
 
