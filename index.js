@@ -1,7 +1,11 @@
 const canvas = document.querySelector("canvas");
 var p = canvas.getContext('2d');
-canvas.height = window.innerHeight - 150;
-canvas.width = window.innerWidth-30;
+
+window.addEventListener('load',function(){
+    canvas.height = window.innerHeight - 150;
+    canvas.width = window.innerWidth - 30;
+})
+
 canvas.style.border = "1px solid red";
 
 // download 
